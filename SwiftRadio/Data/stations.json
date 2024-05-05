@@ -1,0 +1,41 @@
+{
+    "station":
+    [
+     {
+     "name": "Radio NS",
+     "streamURL": "https:\/\/icecast.ns.kz\/radions",
+     "imageURL": "https://top-radio.ru/assets/image/radio/180/radions2.png",
+     "desc": "Радистанция NS",
+     "longDesc": "Слушайте радио NS онлайн в хорошем качестве."
+     },
+     {
+     "name": "Lux FM Казахстан",
+     "streamURL": "https:\/\/icecast.luxfm.kz\/luxfm",
+     "imageURL": "https://top-radio.ru/assets/image/radio/180/luxfmkz.png",
+     "desc": "Lux FM, лучшее только для Вас!",
+     "longDesc": "Слушайте Люкс ФМ только всхорошем качестве"
+     },
+     {
+     "name": "Qazaq Radiosy FM",
+     "streamURL": "https://radio-streams.kaztrk.kz/qazradio/qazradio/icecast.audio",
+     "imageURL": "https://top-radio.ru/assets/image/radio/180/kazradio.png",
+     "desc": "Казактын радиосы",
+     "longDesc": "Казак радиосын тынданыздар."
+     },
+     {
+     "name": "Love Radio Kazakhstan",
+     "streamURL": "https://stream.gakku.kz:8443/love128.mp3",
+     "imageURL": "https://top-radio.ru/assets/image/radio/180/loveradio2.png",
+     "desc": "Love Radio Kazakhstan",
+     "longDesc": "Слушайте Лав Радио Казахстан онлайн бесплатно"
+     },
+     {
+     "name": "Europa Plus",
+     "streamURL": "https:\/\/ep256.hostingradio.ru:8052\/europaplus256.mp3",
+     "imageURL": "https://top-radio.ru/assets/image/radio/180/europa-plus.png",
+     "desc": "Европа плюс",
+     "longDesc": "Слушайте Европа плюс онлайн бесплатно в хорошем качестве."
+     }
+    
+    ]
+}

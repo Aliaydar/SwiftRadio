@@ -6,17 +6,53 @@
 //
 
 import UIKit
+import MediaPlayer
+import FRadioPlayer
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
-
+    var coordinator: MainCoordinator?
+    
+    // CarPlay
+    var playableContentManager: MPPlayableContentManager?
+        
+        
+    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+        // FRadioPlayer config
+        FRadioPlayer.shared.isAutoPlay = true
+        FRadioPlayer.shared.enableArtwork = true
+        FRadioPlayer.shared.artworkAPI = iTunesAPI(artworkSize: 600)
+        
+//        // AudioSession & RemotePlay
+//        activateAudioSession()
+//        setupRemoteCommandCenter()
+        UIApplication.shared.beginReceivingRemoteControlEvents()
+        
+        // Make status bar white
+        UINavigationBar.appearance().barStyle = .black
+        UINavigationBar.appearance().tintColor = .white
+        UINavigationBar.appearance().prefersLargeTitles = true
+        
+        // `CarPlay` is defined only in SwiftRadio-CarPlay target:
+        // Build Settings > Swift Compiler - Custom Flags
+        #if CarPlay
+        setupCarPlay()
+        #endif
+        
+        // Start the coordinator
+        coordinator = MainCoordinator(navigationController: UINavigationController())
+        
+        window = UIWindow(windowScene: windowScene)
+        window?.rootViewController = coordinator?.navigationController
+        window?.makeKeyAndVisible()
+        
+        coordinator?.start()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
